@@ -1,4 +1,4 @@
-#include "ThingSpeak.h" //instalada 
+#include "ThingSpeak.h" //installed
 #include <ESP8266WiFi.h>
 
 unsigned long myChannelNumber1 = 2468698;
