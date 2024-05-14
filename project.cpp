@@ -1,11 +1,9 @@
 #include "ThingSpeak.h" //installed
 #include <ESP8266WiFi.h>
 
-unsigned long myChannelNumber1 = 2468698;
-const char *myWriteAPIKey1 = "ZHF4C88WQ05OK4LM"; 
 
-unsigned long myChannelNumber2 = 2520246;
-const char *myWriteAPIKey2 = "Q9STASZYN4I8224U"; 
+unsigned long myChannelNumber1 = 2520246;
+const char *myWriteAPIKey1 = "Q9STASZYN4I8224U"; 
 
 
 const char *ssid = "bandejas"; 
@@ -38,13 +36,15 @@ void loop() {
   long rssi = WiFi.RSSI();
 
   if (digitalRead(rele) == LOW) {
-    ThingSpeak.writeField(myChannelNumber1, 1, rssi, myWriteAPIKey1);
+    ThingSpeak.writeField(myChannelNumber1, 1, analogRead(A0), myWriteAPIKey1); //sound
   } else {
-    ThingSpeak.writeField(myChannelNumber2, 1, rssi, myWriteAPIKey2);
-  }
+    ThingSpeak.writeField(myChannelNumber1, 2, analogRead(A0), myWriteAPIKey1); //air
+  } 
   Serial.println("datos enviados a ThingSpeak :)");
 
   digitalWrite(rele, !digitalRead(rele));
   Serial.println(analogRead(A0));
   delay(20500);
 }
+
+
