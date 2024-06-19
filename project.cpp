@@ -4,8 +4,9 @@
 unsigned long myChannelNumber1 = 2520246;
 const char *myWriteAPIKey1 = "Q9STASZYN4I8224U";
 
-const char *ssid = "bandejas";
-const char *password = "ikus.1001";
+const char *ssid = "wifing";
+const char *password = "wifing-pub";
+
 
 WiFiClient client;
 
